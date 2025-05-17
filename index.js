@@ -6,7 +6,7 @@ import Foto from './models/foto.js';
 import Usuario from './models/usuarios.js';
 
 async function main() {
-  const novoUsuario = await Usuario.criar('Pedro', 'opa@mail.com');
+  const novoUsuario = await Usuario.criar('Carlos', 'carlinho@mail.com');
   console.log('👤 Usuário criado:', novoUsuario);
 
   const novaFoto = await Foto.criar('Praia de Copacabana', 'https://exemplo.com/foto1.jpg');
@@ -26,6 +26,15 @@ async function main() {
 
   const buscaAlbuns = await Album.buscarPorNome('viagem');
   console.log('🔍 Álbuns encontrados:', buscaAlbuns);
+
+  const deletadoUsuario = await Usuario.deletar(novoUsuario._id);
+  console.log('❌ Usuário deletado:', deletadoUsuario);
+
+  const deletadoFoto = await Foto.deletar(novaFoto._id);
+  console.log('❌ Foto deletada:', deletadoFoto);
+
+  const deletadoAlbum = await Album.deletar(novoAlbum._id);
+  console.log('❌ Álbum deletado:', deletadoAlbum);
 
 }
 

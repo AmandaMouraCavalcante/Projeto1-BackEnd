@@ -49,4 +49,14 @@ export default class Album {
       throw new Error('Erro ao adicionar foto ao álbum');
     }
   }
+
+  static async deletar(id) {
+    try {
+      return await AlbumModel.findByIdAndDelete(id);
+    } catch (error) {
+      logErro(error);
+      throw new Error('Erro ao deletar álbum');
+    }
+  }
+
 }

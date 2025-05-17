@@ -37,4 +37,14 @@ export default class Foto {
       throw new Error('Erro ao listar fotos');
     }
   }
+
+  static async deletar(id) {
+    try {
+      return await FotoModel.findByIdAndDelete(id);
+    } catch (error) {
+      logErro(error);
+      throw new Error('Erro ao deletar foto');
+    }
+  }
+
 }
