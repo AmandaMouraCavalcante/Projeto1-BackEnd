@@ -2,8 +2,7 @@
 
 Disciplina: **Programação Web Back-End – EC48B-C71**  
 Professores: Monique Emídio de Oliveira, Willian Massami Watanabe  
-Alunas: Amanda Moura Cavalcante 2261049
-          Melina Alves Gonçalves 2312727  
+Alunas: Amanda Moura Cavalcante 2261049, Melina Alves Gonçalves 2312727  
 
 ---
 
