@@ -26,30 +26,7 @@ O foco está em **inserção, busca, deleção, tratamento de erros e registro d
 - ECMAScript Modules (ESM)
 - Dotenv
 - Log de erros com sistema de arquivos (`fs`)
-
----
-
-## 🗂️ Estrutura do Projeto
-
-Projeto1-BackEnd/
-│
-├── index.js           
-├── .env               
-│
-├── logs/
-│   └── erros.log      
-│
-├── utils/
-│   └── logger.js      
-│
-├── models/
-│   ├── usuarios.js    
-│   ├── foto.js        
-│   └── albums.js      
-│
-├── database/
-│   └── db.js          
-
+        
 ---
 
 ## ⚙️ Funcionalidades Implementadas
