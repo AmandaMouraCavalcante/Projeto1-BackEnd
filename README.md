@@ -32,21 +32,23 @@ O foco está em **inserção, busca, deleção, tratamento de erros e registro d
 ## 🗂️ Estrutura do Projeto
 
 Projeto1-BackEnd/
-
 │
-
-├── index.js # Código de teste com execução dos métodos
-├── .env # String de conexão MongoDB
+├── index.js           
+├── .env               
+│
 ├── logs/
-│ └── erros.log # Arquivo de log de exceções
+│   └── erros.log      
+│
 ├── utils/
-│ └── logger.js # Função para registrar erros no log
+│   └── logger.js      
+│
 ├── models/
-│ ├── usuarios.js # Classe Usuario
-│ ├── foto.js # Classe Foto
-│ └── albums.js # Classe Album
+│   ├── usuarios.js    
+│   ├── foto.js        
+│   └── albums.js      
+│
 ├── database/
-│ └── db.js # Conexão com o MongoDB
+│   └── db.js          
 
 ---
 
