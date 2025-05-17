@@ -3,8 +3,12 @@ import 'dotenv/config.js';
 import './database/db.js';
 import Album from './models/albums.js';
 import Foto from './models/foto.js';
+import Usuario from './models/usuarios.js';
 
 async function main() {
+  const novoUsuario = await Usuario.criar('João Silva', 'jaosilva@mail.com');
+  console.log('👤 Usuário criado:', novoUsuario);
+
   const novaFoto = await Foto.criar('Praia de Copacabana', 'https://exemplo.com/foto1.jpg');
   console.log('📷 Foto criada:', novaFoto);
 
