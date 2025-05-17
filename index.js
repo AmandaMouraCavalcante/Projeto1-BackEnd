@@ -6,7 +6,7 @@ import Foto from './models/foto.js';
 import Usuario from './models/usuarios.js';
 
 async function main() {
-  const novoUsuario = await Usuario.criar('João Silva', 'jaosilva@mail.com');
+  const novoUsuario = await Usuario.criar('Pedro', 'opa@mail.com');
   console.log('👤 Usuário criado:', novoUsuario);
 
   const novaFoto = await Foto.criar('Praia de Copacabana', 'https://exemplo.com/foto1.jpg');
@@ -20,6 +20,13 @@ async function main() {
 
   const albuns = await Album.listar();
   console.log('📚 Todos os álbuns:', albuns);
+
+  const buscaFotos = await Foto.buscarPorTitulo('praia');
+  console.log('🔍 Fotos encontradas:', buscaFotos);
+
+  const buscaAlbuns = await Album.buscarPorNome('viagem');
+  console.log('🔍 Álbuns encontrados:', buscaAlbuns);
+
 }
 
 main().catch(console.error);
