@@ -32,7 +32,9 @@ O foco está em **inserção, busca, deleção, tratamento de erros e registro d
 ## 🗂️ Estrutura do Projeto
 
 Projeto1-BackEnd/
+
 │
+
 ├── index.js # Código de teste com execução dos métodos
 ├── .env # String de conexão MongoDB
 ├── logs/
