@@ -47,4 +47,13 @@ export default class Foto {
     }
   }
 
+  static async atualizar(id, dados) {
+  try {
+    return await FotoModel.findByIdAndUpdate(id, dados, { new: true });
+  } catch (error) {
+    logErro(error);
+    throw new Error('Erro ao atualizar foto');
+  }
+}
+
 }

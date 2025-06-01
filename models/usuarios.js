@@ -36,4 +36,13 @@ export default class Usuario {
       throw new Error('Erro ao deletar usuário');
     }
   }
+
+  static async atualizar(id, dados) {
+  try {
+    return await UsuarioModel.findByIdAndUpdate(id, dados, { new: true });
+  } catch (error) {
+    logErro(error);
+    throw new Error('Erro ao atualizar usuário');
+  }
+}
 }

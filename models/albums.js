@@ -59,4 +59,13 @@ export default class Album {
     }
   }
 
+  static async atualizar(id, dados) {
+  try {
+    return await AlbumModel.findByIdAndUpdate(id, dados, { new: true });
+  } catch (error) {
+    logErro(error);
+    throw new Error('Erro ao atualizar álbum');
+  }
+}
+
 }
