@@ -18,6 +18,16 @@ app.use(session({
   saveUninitialized: false
 }));
 
+// Rota para criar um usuário
+app.post('/usuarios', async (req, res) => {
+  const { name, email, senha } = req.body;
+  try {
+    const novoUsuario = await Usuario.criar(name, email, senha);
+    res.status(201).json({ mensagem: 'Usuário criado com sucesso!', usuario: novoUsuario });
+  } catch (err) {
+    res.status(400).json({ erro: err.message });
+  }
+});
 app.post('/login', async (req, res) => {
   const { email } = req.body;
 

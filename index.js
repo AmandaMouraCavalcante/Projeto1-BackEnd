@@ -6,7 +6,7 @@ import Foto from './models/foto.js';
 import Usuario from './models/usuarios.js';
 
 async function main() {
-  const novoUsuario = await Usuario.criar('João Silva', 'joao' + Date.now() + '@mail.com');
+  const novoUsuario = await Usuario.criar('João Silva', 'joao' + Date.now() + '@mail.com', '123');
   console.log('👤 Usuário criado:', novoUsuario);
 
   const novaFoto = await Foto.criar('Praia de Copacabana', 'https://exemplo.com/foto1.jpg');
