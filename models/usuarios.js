@@ -1,12 +1,33 @@
 import { logErro } from '../utils/logger.js';
 import mongoose from 'mongoose';
-import '../database/db.js'; // Caminho corrigido
+import '../database/db.js';
+import bcrypt from 'bcrypt';
 
 const usuarioSchema = new mongoose.Schema({
   name: { type: String, required: true },
   email: { type: String, required: true, unique: true },
-  senha: { type: String, required: true } // ✅ senha agora é obrigatória
+  senha: { type: String, required: true } 
 });
+
+//criptografa a senha antes de salvar
+
+const saltRounds = 10;
+
+usuarioSchema.pre('save', async function(next) {
+  if (!this.isModified('senha')) return next();
+
+  try {
+    const hash = await bcrypt.hash(this.senha, saltRounds);
+    this.senha = hash;
+    next();
+  } catch (error) {
+    next(error);
+  }
+});
+
+usuarioSchema.methods.compararSenha = function(senhaCandidata) {
+  return bcrypt.compare(senhaCandidata, this.senha);
+};
 
 const UsuarioModel = mongoose.model('Usuario', usuarioSchema);
 
@@ -19,6 +40,15 @@ export default class Usuario {
       console.error('❌ Erro detalhado ao criar usuário:', error.message);
       logErro(error);
       throw new Error('Erro ao criar usuário');
+    }
+  }
+
+    static async buscarPorEmail(email) {
+    try {
+      return await UsuarioModel.findOne({ email });
+    } catch(error) {
+      logErro(error);
+      throw new Error('Erro ao buscar usuário por email');
     }
   }
 
